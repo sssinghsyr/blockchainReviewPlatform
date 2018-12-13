@@ -8,11 +8,27 @@ var account;
 
 userName = "None";
 var isLoggedIn = false;
+var recordCount = 0;
 
 function userLogin(){
   userName = $("#username").val();
   isLoggedIn = true;
-  document.getElementById('reviewCount').value = contractInstance.getUserReviewCount.call(userName).toString();
+  recordCount = contractInstance.getUserReviewCount.call(userName).toString();
+  document.getElementById('reviewCount').value = recordCount;
+
+  // Adding rows
+  for (var i = 1; i <= recordCount; i++) {
+    var newRow = $("<tr>");
+    var cols = "";
+
+    cols += '<td><input type="text" class="form-control" value="' + contractInstance.getUserProdName.call(userName,i).toString() + '"/></td>';
+    cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdLink.call(userName,i).toString()+'"></td>';
+    cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdPrice.call(userName,i).toString()+'"></td>';
+    cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdReview.call(userName,i).toString()+'"></td>';
+    cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdDate.call(userName,i).toString()+'"></td>';
+    newRow.append(cols);
+    $("table.order-list").append(newRow);
+  }
 }
 
 function getUserReview() {
