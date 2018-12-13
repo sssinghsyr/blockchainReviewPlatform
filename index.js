@@ -34,6 +34,29 @@ function userLogin(){
   }
 }
 
+
+function refreshUserReview(){
+  if(isLoggedIn){
+    recordCount = contractInstance.getUserReviewCount.call(userName).toString();
+    document.getElementById('reviewCount').value = recordCount;
+    $("table.order-list > tbody").html("");
+    // Adding rows
+    for (var i = 0; i < recordCount; i++) {
+      var newRow = $("<tr>");
+      var cols = "";
+
+      cols += '<td><input type="text" class="form-control" value="' + contractInstance.getUserProdName.call(userName,i).toString() + '"/></td>';
+      cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdLink.call(userName,i).toString()+'"></td>';
+      cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdPrice.call(userName,i).toString()+'"></td>';
+      cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdReview.call(userName,i).toString()+'"></td>';
+      cols += '<td><input type="text" class="form-control" value="'+ contractInstance.getUserProdDate.call(userName,i).toString()+'"></td>';
+      newRow.append(cols);
+      $("table.order-list").append(newRow);
+    }
+  }
+}
+
+
 function getUserReview() {
   let div_id = 1;
   let result =  contractInstance.getUserReviewCount.call(userName).toString();
