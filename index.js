@@ -11,13 +11,16 @@ var isLoggedIn = false;
 var recordCount = 0;
 
 function userLogin(){
+  //$("table.order-list").empty();
+  $("table.order-list > tbody").html("");
   userName = $("#username").val();
   isLoggedIn = true;
+  document.getElementById('loginButton').className = 'btn btn-success';
   recordCount = contractInstance.getUserReviewCount.call(userName).toString();
   document.getElementById('reviewCount').value = recordCount;
 
   // Adding rows
-  for (var i = 1; i <= recordCount; i++) {
+  for (var i = 0; i < recordCount; i++) {
     var newRow = $("<tr>");
     var cols = "";
 
@@ -44,7 +47,17 @@ function submitUserReview() {
     p_name = $("#prod_name").val();
     p_link = $("#prod_link").val();
     p_price = $("#prod_price").val();
-    p_date = "01-JAN-2018";
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    } 
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    p_date = dd + '/' + mm + '/' + yyyy;
     contractInstance.submitReview(userName, p_review, p_name, p_link, parseInt(p_price), p_date, {from: web3.eth.accounts[0], gas:900000});
   }
 }

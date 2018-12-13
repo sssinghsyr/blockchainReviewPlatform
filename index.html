@@ -11,8 +11,8 @@
 <body class="container">
   <h1>User's Review</h1>
   <input type="text" id="username" />
-  <a href="#" onclick="userLogin()" class="btn btn-primary">Login</a> <br><br>
-  Number of Reviews <textarea id="reviewCount" name="reviewcountName">0</textarea> <br>
+  <a href="#" id="loginButton" onclick="userLogin()" class="btn btn-danger">Login</a> <br><br>
+  Number of Reviews <input type="text" id="reviewCount" value="0" readonly autocomplete="off"/> <br>
   <div class="table-responsive">
     <table id="myTable" class=" table order-list">
     <thead>
@@ -45,10 +45,10 @@
     </tbody>
     </table>
   </div>
-  Product Name    <input type="text" id="prod_name"/> <br>
-  Product Link    <input type="text" id="prod_link" /><br>
-  Product Price   <input type="text" id="prod_price" /><br>
-  Review comment  <input type="text" id="prod_review" /><br>
+  Product Name    <input type="text" id="prod_name" autocomplete="off"/> <br>
+  Product Link    <input type="text" id="prod_link" autocomplete="off"/><br>
+  Product Price   <input type="text" id="prod_price" autocomplete="off"/><br>
+  Review comment  <input type="text" id="prod_review" autocomplete="off"/><br>
   <a href="#" onclick="submitUserReview()" class="btn btn-primary">Submit</a>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/web3@0.20.4/dist/web3.js"></script>
