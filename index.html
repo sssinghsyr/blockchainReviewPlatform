@@ -9,7 +9,7 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body class="container">
-  <h1>User's Review</h1>
+  <h1>Blockchain Powered Review Platform</h1><br>
   <input type="text" id="username" />
   <a href="#" id="loginButton" onclick="userLogin()" class="btn btn-danger">Login</a> <br><br>
   Number of Reviews <input type="text" id="reviewCount" value="0" readonly autocomplete="off"/> <br>
@@ -45,7 +45,29 @@
     </tbody>
     </table>
   </div>
-  <a href="#" onclick="refreshUserReview()" class="btn btn-primary">Refresh</a><br><br>
+  <div class="table-responsive">
+    <table>
+      <tbody>
+        <tr>
+          <td> <input type="text" value="Product Name" readonly autocomplete="off"/> </td>
+          <td> <input type="text" id="prod_name_try" autocomplete="off" style="width: 300px;"/> </td>
+        </tr>
+        <tr>
+          <td> <input type="text" value="Product Link" readonly autocomplete="off"/> </td>
+          <td> <input type="text" id="prod_link_try" autocomplete="off" style="width: 500px;"/> </td>
+        </tr>
+        <tr>
+          <td> <input type="text" value="Product Price" readonly autocomplete="off"/> </td>
+          <td> <input type="text" id="prod_price_try" autocomplete="off" style="width: 100px;"/> </td>
+        </tr>
+        <tr>
+          <td> <input type="text" value="Product Review" readonly autocomplete="off"/> </td>
+          <td> <input type="text" id="prod_review_try" autocomplete="off" style="width: 500px;"/> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#" onclick="refreshUserReview()" class="btn btn-primary">Refresh</a> Press refresh to see submitted review <br><br>
   Product Name    <input type="text" id="prod_name" autocomplete="off"/> <br>
   Product Link    <input type="text" id="prod_link" autocomplete="off"/><br>
   Product Price   <input type="text" id="prod_price" autocomplete="off"/><br>
