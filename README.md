@@ -1,6 +1,8 @@
 # Blockchain enabled Review platform
+This platform allow user to post product review based on their shopping. This blockchain platform will provide feature or trust in the system that no review comments can be deleted or edited.
 
 
+Decentralized system which stores product review which cannot be manipulated.
 
 ## Overview
 
@@ -14,7 +16,7 @@
 
 ```
 Unzip blockchainReviewPlatform Project Directory
-> cd blockchainReviewPlatform
+> cd blockchainReviewPlatform/
 > npm install 
 ```
 
